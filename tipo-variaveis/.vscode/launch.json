@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Problem",
+            "request": "launch",
+            "mainClass": "Problem",
+            "projectName": "tipo-variaveis_acc13004"
+        },
+        {
+            "type": "java",
+            "name": "DesafioJogo",
+            "request": "launch",
+            "mainClass": "DesafioJogo",
+            "projectName": "tipo-variaveis_acc13004"
+        },
+        {
+            "type": "java",
             "name": "Desafio1",
             "request": "launch",
             "mainClass": "Desafio1",
