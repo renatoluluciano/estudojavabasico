@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="br" xmlns:th="http://www.thymeleaf.or">
+<head >
+  
+  <meta charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>	
+  <link rel="stylesheet" href="css/estilo.css">
+  <title>Listar Todos</title>
+ </head>
+ <body>
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Menu</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Alterna navegação">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" th:href="@{/listar}">Home <span class="sr-only">(Página atual)</span></a>
+      <a class="nav-item nav-link active" href="#">Relatorio</a>
+      <a class="nav-item nav-link active" href="#">Pesquisa</a>
+      <a class="nav-item nav-link active" th:href="@{/agendar}">Agendamento</a>
+      <a class="nav-item nav-link active" th:href="@{/cadastro}">Cadastro</a>
+    </div>
+  </div>
+</nav>
+ <div class="container-fluid">
+ 	<table class="table">
+  <thead>
+    <tr>
+      
+      <th scope="col">Nome Completo</th>
+      <th scope="col">Nome de Guerra</th>
+      <th scope="col">Matricula</th>
+            
+    </tr>
+  </thead>
+  	<tbody  >
+   <tr th:each="pessoa : ${pessoas}">
+        <td th:text="${pessoa.nome_policial}"></td>
+        <td th:text="${pessoa.nome_guerra}"></td>
+        <td th:text="${pessoa.matricula}"></td>
+        <td th:text="${pessoa.atribuicao}"></td>
+        <td><a class="btn btn-primary" 
+        	   th:href="@{/listar/{id}(id=${pessoa.id_policia})}"
+        	   th:data-confirm-delete="|Apagar ${pessoa.nome_policial}?|"
+        	   onclick ="if(!(confirm('Realmente apagar os dados ?') )) return false" >Excluir</a></td> 
+        <td><a class="btn btn-primary" 
+        	   th:href="@{/agendar/{id}(id=${pessoa.id_policia})}"
+        	   th:data-confirm-delete="|Apagar ${pessoa.nome_policial}?|"
+        	   onclick = "">Agendar</a></td>        
+      </tr>
+   
+  	</tbody>
+	</table>
+</div>
+
+</body>
+</html>

@@ -19,7 +19,7 @@ import lombok.Setter;
 public class PessoaPolicial {
 	
 	 @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	 private Long idPolicia;	 
+	 private Long id_policia;	 
 	 private String nome_policial;
 	 private String nome_guerra;
 	 private Long matricula;

@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 public class PessoaPolicialDTO {
 	
-	 private Long idPolicia;	 
+	 private Long id_policia;	 
 	 private String nome_policial;
 	 private String nome_guerra;
 	 private Long matricula;
