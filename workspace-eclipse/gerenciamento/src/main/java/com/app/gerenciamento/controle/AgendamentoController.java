@@ -23,6 +23,8 @@ public class AgendamentoController {
 	
 	@PostMapping("/agendarfolga")
 	public String agendarAfastamento(AgendamentoDTO dto) {
+		
+		System.out.println("Data no DTO:"+dto.getData_afastamento());
 		agendamentoService.agendarFolga(dto);
 		
 		return "listar";

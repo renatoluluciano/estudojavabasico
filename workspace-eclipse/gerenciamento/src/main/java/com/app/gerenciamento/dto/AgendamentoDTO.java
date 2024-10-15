@@ -1,9 +1,10 @@
 package com.app.gerenciamento.dto;
 
 
+
 import java.util.Date;
 
-
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.app.gerenciamento.model.Afastamento;
 
@@ -15,7 +16,7 @@ public class AgendamentoDTO {
 	
 	 private Long id_agendamento;
 	 private Long id_policia;
-	 private Date data_afastamento;
+	 private String data_afastamento;
 	 private Afastamento tipo_afastamento;
 
 }

@@ -3,6 +3,10 @@ package com.app.gerenciamento.service;
 
 
 
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +27,10 @@ public class AgendamentoService {
 
 	public AgendamentoDTO agendarFolga(AgendamentoDTO dto) {
 		
+		
+		
 		Agendamento agendamento = modellMapper.map(dto, Agendamento.class);
+		
 		
 		
 		

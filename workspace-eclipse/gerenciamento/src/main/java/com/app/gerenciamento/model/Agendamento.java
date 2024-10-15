@@ -1,9 +1,11 @@
 package com.app.gerenciamento.model;
 
 
+
+import java.util.Calendar;
 import java.util.Date;
 
-
+import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -26,7 +28,8 @@ public class Agendamento {
 	
 	 @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	 private Long id_agendamento;
-	 private Long id_policia;	
+	 private Long id_policia;
+	 @DateTimeFormat(pattern="dd/MM/yyyy")
 	 private Date data_afastamento;	
 	 @Enumerated(EnumType.STRING)
 	 private Afastamento tipo_afastamento;
