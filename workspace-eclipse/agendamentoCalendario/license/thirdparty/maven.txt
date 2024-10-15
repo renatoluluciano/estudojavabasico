@@ -1,1 +1,0 @@
-This projects references third-party libraries as Maven dependencies. These libraries are licensed separately.
