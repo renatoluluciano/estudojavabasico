@@ -32,4 +32,9 @@
     <fullyQualifiedTypeName name="org.springframework.format.annotation.DateTimeFormat"/>
     <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
     <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+    <fullyQualifiedTypeName name="org.springframework.data.web.PageableDefault"/>
+    <fullyQualifiedTypeName name="java.net.ResponseCache"/>
+    <fullyQualifiedTypeName name="org.springframework.web.util.UriComponentsBuilder"/>
+    <fullyQualifiedTypeName name="java.net.URI"/>
+    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
 </qualifiedTypeNameHistroy>

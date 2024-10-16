@@ -1,14 +1,15 @@
 package br.com.cursomatheus.pizzariadankicode.pizza;
 
-import java.util.List;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
+
 
 import org.modelmapper.ModelMapper;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import jakarta.persistence.EntityNotFoundException;
-import jakarta.validation.Valid;
+
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 
@@ -31,10 +32,9 @@ public class PizzaService {
 	}
 
 
-	public List<PizzaDTO> buscarTodos() {
+	public Page<PizzaDTO> buscarTodos(Pageable paginacao) {
 		
-		return pizzaRepository.findAll().stream().map(p -> modelMapper.map(p, PizzaDTO.class)).
-				collect(Collectors.toList());
+		return pizzaRepository.findAll(paginacao).map(p -> modelMapper.map(p, PizzaDTO.class));
 	}
 
 
