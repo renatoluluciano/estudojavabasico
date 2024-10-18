@@ -33,6 +33,11 @@ public class RespostaModelo {
         return mensagem;
     }
 
+    public String excluirSucesso() {
+        mensagem = "Agendamento removido";
+        return mensagem;
+    }
+
     
     
 

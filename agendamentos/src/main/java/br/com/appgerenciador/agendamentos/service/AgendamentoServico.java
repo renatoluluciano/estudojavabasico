@@ -24,23 +24,36 @@ public class AgendamentoServico {
         return agendamentoRepository.findAll();
     }
 
+    public ResponseEntity<RespostaModelo> excluirAgendamento(Long idAgendamento){
+
+        agendamentoRepository.deleteById(idAgendamento);
+        respostaModelo.excluirSucesso();
+        return new ResponseEntity<>(respostaModelo, HttpStatus.OK);
+    }
+
     
-public ResponseEntity<?> cadastrarAgendamento(AgendamentoModell agendamentoModell){
+    public ResponseEntity<?> cadastrarAlterarAgendamento(AgendamentoModell agendamentoModell, String action){
     if(agendamentoModell.getNomePolicial().equals("")){
         
         respostaModelo.nomeVazio();
-        return new ResponseEntity<RespostaModelo>(respostaModelo, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(respostaModelo, HttpStatus.BAD_REQUEST);
     }else if(agendamentoModell.getDataInicio().equals("")){
         respostaModelo.dataInicioVazio();
-        return new ResponseEntity<RespostaModelo>(respostaModelo, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(respostaModelo, HttpStatus.BAD_REQUEST);
     }else if(agendamentoModell.getDataFinal().equals("")){
         respostaModelo.dataFinalVazio();
-        return new ResponseEntity<RespostaModelo>(respostaModelo, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(respostaModelo, HttpStatus.BAD_REQUEST);
      }else if(agendamentoModell.getTipoAfastamento().equals("")){
         respostaModelo.tipoAfastamentoVazio();
-        return new ResponseEntity<RespostaModelo>(respostaModelo, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(respostaModelo, HttpStatus.BAD_REQUEST);
      }else{
-        return new ResponseEntity<AgendamentoModell>(agendamentoRepository.save(agendamentoModell), HttpStatus.CREATED);
+        if (action.equals("cadastrar")) {
+            return new ResponseEntity<>(agendamentoRepository.save(agendamentoModell), HttpStatus.CREATED);
+        }else{
+            return new ResponseEntity<>(agendamentoRepository.save(agendamentoModell), HttpStatus.OK);
+        }
+    }
+        
      }
     }
-}
+
