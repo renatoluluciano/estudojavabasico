@@ -9,3 +9,6 @@ spring:
     show-sql: true
    
 
+server:
+  error:
+    include-stacktrace: never

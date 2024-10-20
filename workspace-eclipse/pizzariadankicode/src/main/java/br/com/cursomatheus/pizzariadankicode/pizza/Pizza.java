@@ -7,8 +7,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.EqualsAndHashCode;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 //informando ao spring boor que essa classe é uma Entidade, que será uma tabela e que terá um id - chave primária
@@ -16,7 +17,8 @@ import lombok.Setter;
 @Table(name = "Pizza")
 @Getter
 @Setter
-@EqualsAndHashCode
+@AllArgsConstructor
+@NoArgsConstructor
 public class Pizza {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
